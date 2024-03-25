@@ -4,7 +4,7 @@
       <div
         class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700 items-center"
       >
-        <UInput v-model="searchQuery" placeholder="Filter Title..." />
+        <UInput v-model="searchQuery" placeholder="Search Title..." />
       </div>
 
       <UTable :rows="rows" :columns="columns" />
