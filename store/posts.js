@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const usePostsStore = defineStore("posts", () => {
   const postsList = ref([]);
-  const searchQuery = ref('')
+  const searchQuery = ref("");
 
   async function fetchPosts() {
     try {
@@ -17,16 +17,16 @@ export const usePostsStore = defineStore("posts", () => {
     }
   }
 
-  function updatePostsList(postsData) {
-    postsList.value = postsData;
-  }
-
   const filterData = computed(() => {
-    if(!searchQuery.value) {
-      return postsList.value
+    if (!searchQuery.value) {
+      return postsList.value;
     }
-    return postsList.value.filter((post) => String(post.title).toLowerCase().includes(searchQuery.value.toLowerCase()))
-  })
+    return postsList.value.filter((post) =>
+      String(post.title)
+        .toLowerCase()
+        .includes(searchQuery.value.toLowerCase()),
+    );
+  });
 
   return {
     filterData,

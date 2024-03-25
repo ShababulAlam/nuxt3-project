@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <!-- <div>
-      {{ paginatedPosts }}
-    </div> -->
-
+  <div class="flex items-center h-screen">
     <UContainer>
       <div
-        class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700"
+        class="flex px-3 py-3.5 border-b border-gray-200 dark:border-gray-700 items-center"
       >
         <UInput v-model="searchQuery" placeholder="Filter people..." />
       </div>
@@ -31,9 +27,7 @@ import { usePostsStore } from "~/store/posts";
 import { storeToRefs } from "pinia";
 const { fetchPosts } = usePostsStore();
 
-const {  filterData,
-    searchQuery, } = storeToRefs(usePostsStore());
-
+const { filterData, searchQuery } = storeToRefs(usePostsStore());
 
 fetchPosts();
 
@@ -57,7 +51,6 @@ const columns = [
     label: "Body",
   },
 ];
-
 
 const page = ref(1);
 const pageCount = 10;
